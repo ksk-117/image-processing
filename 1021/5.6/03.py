@@ -1,0 +1,10 @@
+import cv2
+img = cv2.imread('pic/Girl.bmp', 0)
+ret, dst_100 = cv2.threshold(img, 100, 255, cv2.THRESH_BINARY)
+ret, dst_OTSU = cv2.threshold(img, 0, 255, cv2.THRESH_OTSU)
+print(ret)
+cv2.imshow("img", img)
+cv2.imshow("th=100", dst_100)
+cv2.imshow("OTSU", dst_OTSU)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

@@ -1,0 +1,11 @@
+import cv2
+img = cv2.imread('pic/Mandrill.bmp')
+img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+ret, dst_color = cv2.threshold(img, 100, 255, cv2.THRESH_BINARY)
+ret, dst_gray = cv2.threshold(img_gray, 100, 255, cv2.THRESH_BINARY)
+cv2.imshow("img", img)
+cv2.imshow("dst_color", dst_color)
+cv2.imshow("gray", img_gray)
+cv2.imshow("dst_gray", dst_gray)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
