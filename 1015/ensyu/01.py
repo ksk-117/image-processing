@@ -1,0 +1,11 @@
+import cv2
+img = cv2.imread('Mandrill.bmp')
+cv2.imshow('img.bmp', img)
+cv2.imwrite('Mandrill.jpg', img)
+cv2.imshow('img.jpg', img)
+cv2.imwrite('Mandrill.png', img)
+cv2.imshow('img.png', img)
+cv2.imwrite('Mandrill.tif', img)
+cv2.imshow('img.tif', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
