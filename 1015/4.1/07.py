@@ -1,5 +1,5 @@
 import cv2
-img = cv2.imread('Mandrill.bmp')
+img = cv2.imread('pic/Mandrill.bmp')
 cv2.imshow('src', img)
 h, w, c = img.shape
 print(h, w, c)

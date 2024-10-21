@@ -1,5 +1,5 @@
 import cv2
-img = cv2.imread('Mandrill.bmp')
+img = cv2.imread('pic/Mandrill.bmp')
 cv2.imshow('img', img)
 SCSLE = 0.2
 h, w, c = img.shape

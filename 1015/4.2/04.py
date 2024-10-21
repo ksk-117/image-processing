@@ -1,5 +1,5 @@
 import cv2
-img = cv2.imread('Pepper.bmp')
+img = cv2.imread('pic/Pepper.bmp')
 cv2.imshow('img', img)
 img[20:50, 50:200] = 0
 cv2.imshow('dst1', img)
