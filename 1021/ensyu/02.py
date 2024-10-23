@@ -1,0 +1,25 @@
+#シグモイドカーブ(Sigmoid curve)
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+def sigmoid_curve(alpha, beta):
+    curve = np.arange(0, 256)
+    curve = 255 / (1 + np.exp(-alpha * (curve - beta)))
+    return curve.astype(np.uint8)
+src = cv2.imread('pic/Mandrill.bmp', cv2.IMREAD_GRAYSCALE)
+cv2.imshow('src', src)
+curve1 = sigmoid_curve(0.1, 128)
+dst = cv2.LUT(src, curve1)
+cv2.imshow('dst alpha=0.1, beta=128', dst)
+curve2 = sigmoid_curve(0.03, 128)
+dst = cv2.LUT(src, curve2)
+cv2.imshow('dst alpha=0.03, beta=128', dst)
+plt.subplot(121)
+plt.plot(curve1), plt.title('alpha=0.1, beta=128')
+plt.xlim(0, 255), plt.ylim(0, 255)
+plt.subplot(122)
+plt.plot(curve2), plt.title('alpha=0.03, beta=128')
+plt.xlim(0, 255), plt.ylim(0, 255)
+plt.show()
+cv2.waitKey(0)
+cv2.destroyAllWindows()
