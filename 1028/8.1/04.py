@@ -1,0 +1,11 @@
+import cv2
+img = cv2.imread('pic/labeling.png', 0)
+num_lab, img_lab = cv2.connectedComponents(img)
+print('num_lab =', num_lab)
+dst1 = cv2.compare(img_lab, 1, cv2.CMP_EQ)
+dst2 = cv2.compare(img_lab, 20, cv2.CMP_EQ)
+cv2.imshow('img', img)
+cv2.imshow('dst1', dst1)
+cv2.imshow('dst20', dst2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
