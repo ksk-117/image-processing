@@ -1,7 +1,7 @@
 import os
 
 # ファイルを作成するディレクトリのパスを指定
-directory = "8.2"  
+directory = "ensyu3"  
 
 # ディレクトリが存在しない場合は作成
 if not os.path.exists(directory):
