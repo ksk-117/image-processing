@@ -1,16 +1,17 @@
 import cv2
-def nothing(s):
+def nothing(x):
     pass
 img = cv2.imread('pic/Mandrill.bmp')
 cv2.imshow('img', img)
-cv2.createTrackbar('V-Up', 'HSV', 255, 255, nothing)
+cv2.createTrackbar('Sigma', 'img', 1, 50, nothing)
 while True:
+    sigma = cv2.getTrackbarPos('Sigma', 'img')
+    if sigma == 0:
+        sigma = 1
+    dst1 = cv2.GaussianBlur(img, (5, 5), sigma)
+    dst2 = cv2.GaussianBlur(img, (7, 7), sigma)
+    cv2.imshow('dst 5x5', dst1)
+    cv2.imshow('dst 7x7', dst2)
     if cv2.waitKey(1) == ord('q'):
         break
-s = cv2.getTrackbarPos('s', 's')
-dst1 = cv2.GaussianBlur(img, (5,5), s)
-dst2 = cv2.GaussianBlur(img, (7,7), s)
-cv2.imshow('dst 5*5 s=3', dst1)
-cv2.imshow('dst 7*7 s=3', dst2)
-cv2.waitKey(0)
 cv2.destroyAllWindows()
