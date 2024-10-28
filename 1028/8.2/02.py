@@ -1,0 +1,11 @@
+import cv2
+img = cv2.imread('pic/flower02.jpg')
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+h, s, v = cv2.split(hsv)
+cv2.imshow('img', img)
+cv2.imshow('hsv', hsv)
+cv2.imshow('hue', h)
+cv2.imshow('saturation', s)
+cv2.imshow('value', v)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

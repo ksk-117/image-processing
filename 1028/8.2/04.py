@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+img = cv2.imread('pic/flower02.jpg')
+cv2.imshow('img', img)
+lower = np.array([95, 0, 0])
+upper = np.array([179, 255, 255])
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+cv2.imshow('hsv', hsv)
+result = cv2.inRange(hsv, lower, upper)
+cv2.imshow('hsv_h', result)
+kernel = np.ones((5, 5), np.uint8)
+result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
+cv2.imshow('open', result)
+contours, hierarchy = cv2.findContours(result, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+cv2.drawContours(img, contours, -1, (0, 0, 255), 3)
+cv2.imshow('dst', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
